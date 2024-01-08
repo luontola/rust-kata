@@ -7,11 +7,23 @@ fn main() {
 mod aoc2017_day1_tests {
     #[test]
     fn test_no_matching_pairs() {
+        assert_eq!(0, evaluate(""));
         assert_eq!(0, evaluate("1234"));
     }
 
+    #[test]
+    fn test_one_matching_pair_without_rollover() {
+        assert_eq!(1, evaluate("11"));
+        assert_eq!(1 + 2, evaluate("1122"));
+    }
+
     fn evaluate(string: &str) -> u32 {
-        0
+        let numbers = string_to_integers(string);
+        let mut sum = 0u32;
+        for pair in numbers.windows(2) {
+            sum += evaluate_pair(pair[0], pair[1])
+        }
+        sum
     }
 
     #[test]
