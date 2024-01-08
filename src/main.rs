@@ -6,6 +6,14 @@ fn main() {
 #[cfg(test)]
 mod aoc2017_day1_tests {
     #[test]
+    fn acceptance_tests() {
+        assert_eq!(3, evaluate("1122"));
+        assert_eq!(4, evaluate("1111"));
+        assert_eq!(0, evaluate("1234"));
+        assert_eq!(9, evaluate("91212129"));
+    }
+
+    #[test]
     fn test_empty() {
         assert_eq!(0, evaluate(""));
     }
