@@ -57,9 +57,9 @@ mod aoc2017_day1_tests {
 
     #[test]
     fn test_string_to_integers() {
-        assert_eq!(vec![42; 0], string_to_integers(""));
-        assert_eq!(vec![5], string_to_integers("5"));
-        assert_eq!(vec![1, 2, 3], string_to_integers("123"));
+        assert_eq!(string_to_integers(""), vec![]);
+        assert_eq!(string_to_integers("5"), vec![5]);
+        assert_eq!(string_to_integers("123"), vec![1, 2, 3]);
     }
 
     fn string_to_integers(input: &str) -> Vec<u32> {
