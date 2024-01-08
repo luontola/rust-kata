@@ -44,14 +44,16 @@ mod aoc2017_day1_tests {
     }
 
     fn evaluate(string: &str) -> u32 {
-        let mut numbers = string_to_integers(string);
+        let numbers = string_to_integers(string);
         if numbers.is_empty() {
             return 0;
         }
-        numbers.push(numbers[0]);
+        let mut others = numbers.clone();
+        others.rotate_right(1);
+
         let mut sum = 0u32;
-        for pair in numbers.windows(2) {
-            sum += evaluate_pair(pair[0], pair[1])
+        for i in 0..numbers.len() {
+            sum += evaluate_pair(numbers[i], others[i])
         }
         sum
     }
