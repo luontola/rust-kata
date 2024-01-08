@@ -13,8 +13,14 @@ mod aoc2017_day1_tests {
 
     #[test]
     fn test_one_matching_pair_without_rollover() {
-        assert_eq!(1, evaluate("11"));
+        assert_eq!(1, evaluate("112"));
         assert_eq!(1 + 2, evaluate("1122"));
+    }
+
+    #[test]
+    fn test_multiple_matching_pairs_without_rollover() {
+        assert_eq!(1 + 1, evaluate("1112"));
+        assert_eq!(1 + 1 + 2 + 2, evaluate("111222"));
     }
 
     fn evaluate(string: &str) -> u32 {
