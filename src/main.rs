@@ -15,6 +15,20 @@ mod aoc2017_day1_tests {
     }
 
     #[test]
+    fn test_string_to_integers() {
+        assert_eq!(Vec::<i32>::new(), string_to_integers(""));
+        assert_eq!(vec![5], string_to_integers("5"));
+        assert_eq!(vec![1, 2, 3], string_to_integers("123"));
+    }
+
+    fn string_to_integers(input: &str) -> Vec<i32> {
+        input
+            .chars()
+            .filter_map(|c| c.to_digit(10).map(|d| d as i32))
+            .collect()
+    }
+
+    #[test]
     fn test_evaluate_pair() {
         assert_eq!(1, evaluate_pair(1, 1));
         assert_eq!(0, evaluate_pair(1, 2));
