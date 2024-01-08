@@ -6,6 +6,15 @@ fn main() {
 #[cfg(test)]
 mod aoc2017_day1_tests {
     #[test]
+    fn test_no_matching_pairs() {
+        assert_eq!(0, evaluate("1234"));
+    }
+
+    fn evaluate(string: &str) -> i32 {
+        0
+    }
+
+    #[test]
     fn test_evaluate_pair() {
         assert_eq!(1, evaluate_pair(1, 1));
         assert_eq!(0, evaluate_pair(1, 2));
