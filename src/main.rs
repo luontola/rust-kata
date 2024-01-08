@@ -6,8 +6,12 @@ fn main() {
 #[cfg(test)]
 mod aoc2017_day1_tests {
     #[test]
-    fn test_no_matching_pairs() {
+    fn test_empty() {
         assert_eq!(0, evaluate(""));
+    }
+
+    #[test]
+    fn test_no_matching_pairs() {
         assert_eq!(0, evaluate("1234"));
     }
 
@@ -23,8 +27,19 @@ mod aoc2017_day1_tests {
         assert_eq!(1 + 1 + 2 + 2, evaluate("111222"));
     }
 
+    #[test]
+    fn test_rollover() {
+        assert_eq!(1 + 1 + 1, evaluate("111"));
+        assert_eq!(2 + 2, evaluate("22"));
+        assert_eq!(7, evaluate("7"));
+    }
+
     fn evaluate(string: &str) -> u32 {
-        let numbers = string_to_integers(string);
+        let mut numbers = string_to_integers(string);
+        if numbers.is_empty() {
+            return 0;
+        }
+        numbers.push(numbers[0]);
         let mut sum = 0u32;
         for pair in numbers.windows(2) {
             sum += evaluate_pair(pair[0], pair[1])
