@@ -57,7 +57,7 @@ mod aoc2017_day1_tests {
 
     #[test]
     fn test_string_to_integers() {
-        assert_eq!(Vec::<u32>::new(), string_to_integers(""));
+        assert_eq!(vec![42; 0], string_to_integers(""));
         assert_eq!(vec![5], string_to_integers("5"));
         assert_eq!(vec![1, 2, 3], string_to_integers("123"));
     }
