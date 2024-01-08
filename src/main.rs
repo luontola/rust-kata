@@ -13,7 +13,7 @@ mod aoc2017_day1_tests {
     }
 
     fn evaluate_pair(a: i32, b: i32) -> i32 {
-        if (a == b) {
+        if a == b {
             a
         } else {
             0
