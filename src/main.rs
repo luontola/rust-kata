@@ -10,21 +10,21 @@ mod aoc2017_day1_tests {
         assert_eq!(0, evaluate("1234"));
     }
 
-    fn evaluate(string: &str) -> i32 {
+    fn evaluate(string: &str) -> u32 {
         0
     }
 
     #[test]
     fn test_string_to_integers() {
-        assert_eq!(Vec::<i32>::new(), string_to_integers(""));
+        assert_eq!(Vec::<u32>::new(), string_to_integers(""));
         assert_eq!(vec![5], string_to_integers("5"));
         assert_eq!(vec![1, 2, 3], string_to_integers("123"));
     }
 
-    fn string_to_integers(input: &str) -> Vec<i32> {
+    fn string_to_integers(input: &str) -> Vec<u32> {
         input
             .chars()
-            .filter_map(|c| c.to_digit(10).map(|d| d as i32))
+            .filter_map(|c| c.to_digit(10))
             .collect()
     }
 
@@ -35,7 +35,7 @@ mod aoc2017_day1_tests {
         assert_eq!(6, evaluate_pair(6, 6));
     }
 
-    fn evaluate_pair(a: i32, b: i32) -> i32 {
+    fn evaluate_pair(a: u32, b: u32) -> u32 {
         if a == b {
             a
         } else {
